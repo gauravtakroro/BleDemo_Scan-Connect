@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="result"
+            type="android.bluetooth.le.ScanResult" />
+        <import type="android.view.View"/>
+        <variable
+            name="advertiseDataString"
+            type="String" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_card_view_margin">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_device_name"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_card_view_text_horizontal_margin"
+                    android:layout_marginVertical="@dimen/layout_card_view_text_vertical_margin"
+                    android:layout_weight="0.8"
+                    android:text="@{result.device.name != null ? result.device.name : `Unknown`}"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_signal_strength_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="8dp"
+                android:layout_weight="0.20"
+                android:src="@drawable/ic_network_1" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_device_description"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{advertiseDataString != null ? View.VISIBLE : View.GONE}"
+                android:layout_marginHorizontal="@dimen/layout_card_view_text_horizontal_margin"
+                android:text="@{advertiseDataString}"
+                android:textSize="12sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+</layout>

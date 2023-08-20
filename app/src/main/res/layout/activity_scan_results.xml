@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -32,23 +33,47 @@
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/layout_margin"
         android:padding="@dimen/layout_margin"
-        app:layout_constraintBottom_toTopOf="@+id/btnStartScan"
+        app:layout_constraintBottom_toTopOf="@+id/layoutButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showAdvertiseDataSwitch" />
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:id="@+id/layoutButtons"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/layout_margin"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    >
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnStartScan"
-        android:layout_width="wrap_content"
+        android:layout_weight="0.48"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/layout_margin"
         android:background="@color/purple_700"
         android:paddingHorizontal="@dimen/button_horizontal_padding"
         android:paddingVertical="@dimen/button_vertical_padding"
         android:text="@string/start_scan"
         android:textColor="@color/white"
         android:textSize="@dimen/button_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        />
+<Space android:layout_height="match_parent"
+    android:layout_width="0dp"
+    android:layout_weight="0.04"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnClearAll"
+        android:layout_weight="0.48"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:paddingHorizontal="@dimen/button_horizontal_padding"
+        android:paddingVertical="@dimen/button_vertical_padding"
+        android:text="@string/clear_all"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        />
+</androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
